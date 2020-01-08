@@ -1,0 +1,106 @@
+<div class="col-md-6">  
+  <h2 class="text-center">{{ctformlabel}}</h2>  
+  <form [formGroup]="addForm" novalidate class="form">  
+    <!-- <div class="form-group">  
+      <label for="ctId">Id:</label>  
+      <input type="number" formControlName="id" placeholder="Id" name="cusId" class="form-control" id="cusId">  
+    </div>   -->
+
+    <div class="form-group">  
+      <label for="ngaylamhopdong"> NgayLamHopDong:</label>  
+      <input formControlName="ngaylamhopdong" placeholder="NgayLamHopDong" name="ngaylamhopdong" class="form-control" id="ngaylamhopdong">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('ngaylamhopdong').hasError('required') && addForm.get('ngaylamhopdong').touched">  
+        Customer Name is required  
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('ngaylamhopdong').hasError('pattern') && addForm.get('ngaylamhopdong').touched">  
+        Ngày Lam Hop Dong phải đúng định dạng dd/MM/yyyy
+      </div>
+    </div>
+
+
+    <div class="form-group">  
+      <label for="ngayketthuc"> NgayLamHopDong:</label>  
+      <input formControlName="ngayketthuc" placeholder="NgayKetThuc" name="ngayketthuc" class="form-control" id="ngayketthuc">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('ngayketthuc').hasError('required') && addForm.get('ngayketthuc').touched">  
+        Customer Name is required  
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('ngayketthuc').hasError('pattern') && addForm.get('ngayketthuc').touched">  
+        Ngày Kết Thúc phải đúng định dạng dd/MM/yyyy
+      </div>
+    </div>
+
+    <div class="form-group">  
+      <label for="tiendaccoc"> TienDacCoc:</label>  
+      <input formControlName="tiendaccoc" placeholder="TienDacCoc" name="tiendaccoc" class="form-control" id="tiendaccoc">
+      <div class="alert  alert-danger" *ngIf="addForm.get('tiendaccoc').hasError('required') && addForm.get('tiendaccoc').touched">  
+        Money is required  
+      </div> 
+    </div>
+   
+    <div class="form-group">  
+      <label for="tongtien"> TongTien:</label>  
+      <input formControlName="tongtien" placeholder="TongTien" name="tongtien" class="form-control" id="tongtien">
+      <div class="alert  alert-danger" *ngIf="addForm.get('tiendaccoc').hasError('required') && addForm.get('tiendaccoc').touched">  
+        Money is required  
+      </div> 
+    </div>
+
+    <div class="form-group">  
+      <label for="tendichvu"> TenDichVu:</label>  
+      <input formControlName="tendichvu" placeholder="TenDichVu" name="tendichvu" class="form-control" id="tendichvu">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('tendichvu').hasError('required') && addForm.get('tendichvu').touched">  
+        Tên Dịch Vụ Không ĐC Để Trống
+      </div>  
+    </div> 
+
+    <div class="form-group">  
+      <label for="dientich">DienTichSuDung:</label>  
+      <input formControlName="dientich" placeholder="DienTich" name="dientich" class="form-control" id="dientich">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('required') && addForm.get('dientich').touched">  
+        Dien Tich Khong Dc De Trong
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+        Dien Tich Phai La So Duong
+      </div>
+    </div>
+
+    <div class="form-group">  
+      <label for="sotang">SoTang:</label>  
+      <input formControlName="sotang" placeholder="SoTang" name="sotang" class="form-control" id="sotang">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('sotang').hasError('required') && addForm.get('sotang').touched">  
+        So SoTang Khong Dc De Trong
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+        So Tang Phai La So Nguyen Duong
+      </div>
+    </div>
+
+    <div class="form-group">  
+      <label for="songuoitoida">SoNguoiToiDa:</label>  
+      <input formControlName="songuoitoida" placeholder="SoNguoiToiDa" name="songuoitoida" class="form-control" id="songuoitoida">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('songuoitoida').hasError('required') && addForm.get('songuoitoida').touched">  
+        So NguoiToiDa Khong Dc De Trong
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+        So Nguoi Toi Da Phai La So Nguyen Duong
+      </div>
+    </div>
+
+    <div class="form-group">  
+      <label for="chiphithue">ChiPhiThue:</label>  
+      <input formControlName="chiphithue" placeholder="ChiPhiThue" name="chiphithue" class="form-control" id="chiphithue">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('chiphithue').hasError('required') && addForm.get('chiphithue').touched">  
+        ChiPhiThue Khong Dc De Trong
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+        ChiPhiThue Da Phai La So Nguyen Duong
+      </div>
+    </div>
+    
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="btnvisibility" (click)="onSubmit()">Save</button>  
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="!btnvisibility" (click)="onUpdate()">Update</button>  
+  
+    <p>Form value: {{ addForm.value | json }}</p>  
+  </form>  
+</div>
+

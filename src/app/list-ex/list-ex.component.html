@@ -1,0 +1,36 @@
+<div class="col-md-12">
+    <button (click)="addEx()" class="btn btn-info"> Add Services</button>    
+  <h2> User Services</h2>
+  <input class="form-control" type="text" name="search" [(ngModel)]="key">
+  <div class="table-responsive table-container">  
+    <table class="table" >  
+      <thead>  
+        <tr>  
+          <th>Id</th>  
+          <th>TenDichVu</th>  
+          <th>DienTich</th>  
+          <th>SoTang</th>
+          <th>Songuoitoida</th>
+          <th>Chiphithue</th>  
+        </tr>  
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let ex of executives | filter:key | paginate: { itemsPerPage: 2, currentPage: p }">  
+          <td class="hidden">{{ex.id}}</td>  
+          <td>{{ex.tendichvu}}</td>
+          <td>{{ex.dientich}}</td>
+          <td>{{ex.sotang}}</td>
+          <td>{{ex.songuoitoida}}</td>
+          <td>{{ex.chiphithue}}</td>   
+          <td>  
+            <button (click)="deleteEx(ex)" class="btn btn-info"> Delete</button>  
+            <button (click)="editEx(ex)" style="margin-left: 20px;" class="btn btn-info">Edit</button>  
+          </td>  
+        </tr>  
+      </tbody>  
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>  
+</div>
+
+

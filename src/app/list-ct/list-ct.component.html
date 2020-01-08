@@ -1,0 +1,47 @@
+<div class="col-md-12">
+  <button (click)="addCt()" class="btn btn-info"> Add Contract</button>    
+<h2> User Contracts</h2>
+<input class="form-control" type="text" name="search" [(ngModel)]="key">
+<div class="table-responsive table-container">  
+  <table class="table" >  
+    <thead>  
+      <tr>  
+        <th>Id</th>  
+        <th>NgayLamHopDong</th>  
+        <th>NgayKetThuc</th>  
+        <th>TienDacCoc</th>
+        <th>TongTien</th>
+        <th>TenDichVu</th>  
+        <th>DienTich</th>  
+        <th>SoTang</th>
+        <th>Songuoitoida</th>
+        <th>Chiphithue</th> 
+
+
+      </tr>  
+    </thead>  
+    <tbody>  
+      <tr *ngFor="let ct of contracts | filter:key | paginate: { itemsPerPage: 2, currentPage: p }">  
+        <td class="hidden">{{ct.id}}</td>  
+        <td>{{ct.ngaylamhopdong}}</td>  
+        <td>{{ct.ngayketthuc}}</td>  
+        <td>{{ct.tiendaccoc}}</td>
+        <td>{{ct.tongtien}}</td>
+        <td>{{ct.tendichvu}}</td>
+        <td>{{ct.dientich}}</td>
+        <td>{{ct.sotang}}</td>
+        <td>{{ct.songuoitoida}}</td>
+        <td>{{ct.chiphithue}}</td>   
+
+        <td>  
+          <button (click)="deleteCt(ct)" class="btn btn-info">Delete</button>  
+          <button (click)="editCt(ct)" style="margin-left: 20px;" class="btn btn-info">Edit</button>  
+        </td>  
+      </tr>  
+    </tbody>  
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>  
+</div>  
+
+

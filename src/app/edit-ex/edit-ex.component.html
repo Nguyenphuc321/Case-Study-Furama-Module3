@@ -1,0 +1,64 @@
+<div class="col-md-6">  
+    <h2 class="text-center">{{exformlabel}}</h2>  
+    <form [formGroup]="editForm" novalidate class="form">  
+        <!-- <div class="form-group">  
+            <label for="exId"> Id:</label>  
+            <input type="number" formControlName="id" placeholder="Id" name="exId" class="form-control" id="exId">  
+       </div> -->
+
+       <div class="form-group">  
+        <label for="tendichvu"> TenDichVu:</label>  
+        <input formControlName="tendichvu" placeholder="TenDichVu" name="tendichvu" class="form-control" id="tendichvu">  
+        <div class="alert  alert-danger" *ngIf="addForm.get('tendichvu').hasError('required') && addForm.get('tendichvu').touched">  
+          Tên Dịch Vụ Không ĐC Để Trống
+        </div>  
+      </div> 
+
+      <div class="form-group">  
+        <label for="dientich">DienTichSuDung:</label>  
+        <input formControlName="dientich" placeholder="DienTich" name="dientich" class="form-control" id="dientich">  
+        <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('required') && addForm.get('dientich').touched">  
+          Dien Tich Khong Dc De Trong
+        </div>  
+        <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+          Dien Tich Phai La So Duong
+        </div>
+      </div>
+
+      <div class="form-group">  
+        <label for="sotang">SoTang:</label>  
+        <input formControlName="sotang" placeholder="SoTang" name="sotang" class="form-control" id="sotang">  
+        <div class="alert  alert-danger" *ngIf="addForm.get('sotang').hasError('required') && addForm.get('sotang').touched">  
+          So SoTang Khong Dc De Trong
+        </div>  
+        <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+          So Tang Phai La So Nguyen Duong
+        </div>
+      </div>
+
+      <div class="form-group">  
+        <label for="songuoitoida">SoNguoiToiDa:</label>  
+        <input formControlName="songuoitoida" placeholder="SoNguoiToiDa" name="songuoitoida" class="form-control" id="songuoitoida">  
+        <div class="alert  alert-danger" *ngIf="addForm.get('songuoitoida').hasError('required') && addForm.get('songuoitoida').touched">  
+          SoNguoiToiDa Khong Dc De Trong
+        </div>  
+        <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+          So Nguoi Toi Da Phai La So Nguyen Duong
+        </div>
+      </div>
+
+      <div class="form-group">  
+        <label for="chiphithue">ChiPhiThue:</label>  
+        <input formControlName="chiphithue" placeholder="ChiPhiThue" name="chiphithue" class="form-control" id="chiphithue">  
+        <div class="alert  alert-danger" *ngIf="addForm.get('chiphithue').hasError('required') && addForm.get('chiphithue').touched">  
+          ChiPhiThue Khong Dc De Trong
+        </div>  
+        <div class="alert  alert-danger" *ngIf="addForm.get('dientich').hasError('pattern') && addForm.get('dientich').touched">  
+          ChiPhiThue Da Phai La So Nguyen Duong
+        </div>
+      </div>
+       <button class="btn btn-success" [disabled]='editForm.invalid'  (click)="onUpdate()">Update</button>  
+    
+      <p>Form value: {{ editForm.value | json }}</p>  
+    </form>  
+  </div>  

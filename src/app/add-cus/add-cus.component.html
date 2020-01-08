@@ -1,0 +1,60 @@
+<div class="col-md-6">  
+  <h2 class="text-center">{{cusformlabel}}</h2>  
+  <form [formGroup]="addForm" novalidate class="form">  
+    <!-- <div class="form-group">  
+      <label for="cusId"> Id:</label>  
+      <input type="number" formControlName="id" placeholder="Id" name="cusId" class="form-control" id="cusId">  
+    </div>   -->
+  
+    <div class="form-group">  
+      <label for="cusName"> Name:</label>  
+      <input formControlName="name" placeholder="Customer Name" name="cusName" class="form-control" id="cusName">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('name').hasError('required') && addForm.get('name').touched">  
+        Customer Name is required  
+      </div>  
+    </div>
+
+    <div class="form-group">  
+      <label for="ngaysinh"> NgaySinh:</label>  
+      <input formControlName="ngaysinh" placeholder="Ngay Sinh" name="ngaysinh" class="form-control" id="ngaysinh">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('ngaysinh').hasError('required') && addForm.get('ngaysinh').touched">  
+        Customer Name is required  
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('ngaysinh').hasError('pattern') && addForm.get('ngaysinh').touched">  
+        Ngày sinh phải đúng định dạng dd/MM/yyyy
+      </div>
+    </div>
+
+    <div class="form-group">  
+      <label for="cusAge">Customer Age:</label>  
+      <input formControlName="age" placeholder="Customer Age" name="cusAge" class="form-control" id="cusAge">  
+      <div class="alert  alert-danger" *ngIf=" addForm.get('age').hasError('maxlength') && addForm.get('age').touched">  
+        Age is required and should less than 3 characters.  
+      </div>  
+    </div>
+    <div class="form-group">  
+      <label for="email"> Email:</label>  
+      <input formControlName="email" placeholder="Email" name="email" class="form-control" id="email">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('email').hasError('required') && addForm.get('email').touched">  
+        Email không đc để trống
+      </div>  
+      <div class="alert  alert-danger" *ngIf="addForm.get('ngaysinh').hasError('pattern') && addForm.get('ngaysinh').touched">  
+        Email phải đúng định dạng
+      </div>
+    </div>
+
+    <div class="form-group">  
+      <label for="cusAddress"> Address:</label>  
+      <input formControlName="address" placeholder="Address" name="address" class="form-control" id="address">  
+      <div class="alert  alert-danger" *ngIf="addForm.get('address').hasError('required') && addForm.get('address').touched">  
+        Customer Address is required  
+      </div>  
+    </div>  
+
+    
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="btnvisibility" (click)="onSubmit()">Save</button>  
+    <button class="btn btn-success" [disabled]='addForm.invalid' *ngIf="!btnvisibility" (click)="onUpdate()">Update</button>  
+  
+    <p>Form value: {{ addForm.value | json }}</p>  
+  </form>  
+</div>  

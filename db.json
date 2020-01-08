@@ -1,0 +1,44 @@
+{
+  "customer": [
+    {
+      "id": 8,
+      "name": "phúc nguyễn",
+      "age": "19",
+      "ngaysinh": "11/01/1988",
+      "email": "phuckt657@gmail.com",
+      "address": "biên hòa"
+    }
+  ],
+  "employees": [
+    {
+      "id": 10,
+      "employee_name": "nguyen van A",
+      "employee_salary": "10000",
+      "employee_age": "19"
+    }
+  ],
+  "executive": [
+    {
+      "id": 5,
+      "tendichvu": "dichvuvilla1",
+      "dientich": "5000",
+      "sotang": "4",
+      "songuoitoida": "5",
+      "chiphithue": "20000"
+    }
+  ],
+  "contract": [
+    {
+      "id": 4,
+      "ngaylamhopdong": "22/02/2019",
+      "ngayketthuc": "22/03/2019",
+      "tiendaccoc": "20000",
+      "tongtien": "3000000000000",
+      "tendichvu": "dichvuvilla1",
+      "dientich": "5000",
+      "sotang": "4",
+      "songuoitoida": "5",
+      "chiphithue": "3000000"
+    }
+  ]
+}
